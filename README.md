@@ -4,7 +4,7 @@
 </div>
 
 ![](https://img.shields.io/badge/framework-.netstandard2.0-blue.svg)
-![](http://progressed.io/bar/0?title=done)
+![](http://progressed.io/bar/30?title=done)
 
 [x]: ![](https://img.shields.io/badge/build-passing-brightgreen.svg)
 [x]: [![](https://img.shields.io/badge/nuget-v0.3-brightgreen.svg)](https://www.nuget.org/packages/iExpr.Core/0.3.0)
@@ -13,13 +13,13 @@
 
 The different kinds of expressions in iExpr.
 
-> When **iExpr.Core** is finished, this project will start.
+> This project is in progress.
 
 # List of Exprs
 
-- [ ] Logic
-- [ ] Math
-- [ ] Code
+- [x] Logic ![](http://progressed.io/bar/100)
+- [ ] Math ![](http://progressed.io/bar/20)
+- [ ] Code ![](http://progressed.io/bar/0)
 
 # Links
 
