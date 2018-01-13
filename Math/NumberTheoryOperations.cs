@@ -53,8 +53,7 @@ namespace iExpr.Exprs.Math
             {
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(2, args);
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(Gcd, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var ov = OperationHelper.GetValue<long>(args);
                 return new ConcreteValue(gcd(ov[0], ov[1]));
             },
@@ -69,8 +68,7 @@ namespace iExpr.Exprs.Math
             {
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(2, args);
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(Lcm, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var ov = OperationHelper.GetValue<long>(args);
                 long g = gcd(ov[0], ov[1]);
                 return new ConcreteValue(ov[0]/g*ov[1]);

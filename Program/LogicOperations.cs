@@ -18,7 +18,7 @@ namespace iExpr.Exprs.Program
             (IExpr[] args, EvalContext cal) =>
             {
                 OperationHelper.AssertArgsNumberThrowIf(2, args);
-                if (!OperationHelper.AssertConstantValue(args)) return new ExprNodeBinaryOperation(Or, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var bs = OperationHelper.GetValue<bool>(args);
                 return new ConcreteValue(bs[0] || bs[1]);
             },
@@ -35,7 +35,7 @@ namespace iExpr.Exprs.Program
             (IExpr[] args, EvalContext cal) =>
             {
                 OperationHelper.AssertArgsNumberThrowIf(2, args);
-                if (!OperationHelper.AssertConstantValue(args)) return new ExprNodeBinaryOperation(Xor, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var bs = OperationHelper.GetValue<bool>(args);
                 return new ConcreteValue(bs[0] ^ bs[1]);
             },
@@ -52,7 +52,7 @@ namespace iExpr.Exprs.Program
             (IExpr[] args, EvalContext cal) =>
             {
                 OperationHelper.AssertArgsNumberThrowIf(2, args);
-                if (!OperationHelper.AssertConstantValue(args)) return new ExprNodeBinaryOperation(And, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var bs = OperationHelper.GetValue<bool>(args);
                 return new ConcreteValue(bs[0] && bs[1]);
             },
@@ -69,7 +69,7 @@ namespace iExpr.Exprs.Program
             (IExpr[] args, EvalContext cal) =>
             {
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
-                if (!OperationHelper.AssertConstantValue(args)) return new ExprNodeSingleOperation(Not, args[0]);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var p = OperationHelper.GetValue<bool>(args[0]);
                 return new ConcreteValue(!p);
             },

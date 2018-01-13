@@ -1,10 +1,10 @@
 ﻿using iExpr.Evaluators;
+using iExpr.Exceptions;
 using iExpr.Exprs.Program.Helpers;
 using iExpr.Helpers;
 using iExpr.Values;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Text;
 
 namespace iExpr.Exprs.Program
@@ -18,23 +18,22 @@ namespace iExpr.Exprs.Program
                     var args = _args.Arguments;
                     if (OperationHelper.AssertArgsNumber(1, args))
                     {
-                        if (OperationHelper.AssertConstantValue(args[0]))
-                        {
-                            int n = OperationHelper.GetValue<int>(args[0]);
-                            return new TupleValue(new IExpr[n]);
-                        }
-                        else return new ExprNodeCall(Array, args);
+                        OperationHelper.AssertCertainValueThrowIf(args[0]);
+                        int n = OperationHelper.GetValue<int>(args[0]);
+                        return new TupleValue(new IValue[n]);
                     }
                     else if (OperationHelper.AssertArgsNumber(2, args))
                     {
-                        if (OperationHelper.AssertConstantValue(args[0]))
+                        OperationHelper.AssertCertainValueThrowIf(args[0]);
+                        int n = OperationHelper.GetValue<int>(args[0]);
+                        List<IValue> exps = new List<IValue>();
+                        if (args[1] is IValue)
                         {
-                            int n = OperationHelper.GetValue<int>(args[0]);
-                            List<IExpr> exps = new List<IExpr>();
-                            for (int i = 0; i < n; i++) exps.Add(args[1]);//TODO: this is ref not clone!
+                            for (int i = 0; i < n; i++) exps.Add((IValue)args[1]);//TODO: this is ref not clone!
                             return new TupleValue(exps);
                         }
-                        else return new ExprNodeCall(Array, args);
+                        else throw new NotValueException();
+                            
                     }
                     else
                     {

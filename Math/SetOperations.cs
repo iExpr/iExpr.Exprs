@@ -19,10 +19,9 @@ namespace iExpr.Exprs.Math
             {
                 var args = _args.Arguments;
                 if (args.Length == 0) return new SetValue();
-                if (!OperationHelper.AssertConstantValue<CollectionValue>(args))
-                    return new ExprNodeCall(Cup, args);
+                OperationHelper.AssertCertainValueThrowIf<CollectionValue>(args);
                 var ov = OperationHelper.GetValue<CollectionValue>(args);
-                HashSet<IExpr> set = new HashSet<IExpr>(ov[0]);
+                HashSet<IValue> set = new HashSet<IValue>(ov[0]);
                 for (int i = 1; i < ov.Length; i++)
                 {
                     set.UnionWith(ov[i]);
@@ -37,10 +36,9 @@ namespace iExpr.Exprs.Math
             {
                 var args = _args.Arguments;
                 if (args.Length == 0) return new SetValue();
-                if (!OperationHelper.AssertConstantValue<CollectionValue>(args))
-                    return new ExprNodeCall(Cap, args);
+                OperationHelper.AssertCertainValueThrowIf<CollectionValue>(args);
                 var ov = OperationHelper.GetValue<CollectionValue>(args);
-                HashSet<IExpr> set = new HashSet<IExpr>(ov[0]);
+                HashSet<IValue> set = new HashSet<IValue>(ov[0]);
                 for (int i = 1; i < ov.Length; i++)
                 {
                     set.IntersectWith(ov[i]);
@@ -55,10 +53,9 @@ namespace iExpr.Exprs.Math
             {
                 var args = _args.Arguments;
                 if (args.Length == 0) return new SetValue();
-                if (!OperationHelper.AssertConstantValue<CollectionValue>(args))
-                    return new ExprNodeCall(Dif, args);
+                OperationHelper.AssertCertainValueThrowIf<CollectionValue>(args);
                 var ov = OperationHelper.GetValue<CollectionValue>(args);
-                HashSet<IExpr> set = new HashSet<IExpr>(ov[0]);
+                HashSet<IValue> set = new HashSet<IValue>(ov[0]);
                 for (int i = 1; i < ov.Length; i++)
                 {
                     set.ExceptWith(ov[i]);

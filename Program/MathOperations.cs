@@ -18,8 +18,7 @@ namespace iExpr.Exprs.Program
             {
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(Ceil, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var ov = OperationHelper.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Ceiling(ov));
             },
@@ -34,8 +33,7 @@ namespace iExpr.Exprs.Program
             {
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(Floor, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var ov = OperationHelper.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Floor(ov));
             },
@@ -50,8 +48,7 @@ namespace iExpr.Exprs.Program
             {
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(Round, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var ov = OperationHelper.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Round(ov));
             },
@@ -66,8 +63,7 @@ namespace iExpr.Exprs.Program
             {
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(Sign, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var ov = OperationHelper.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Sign(ov));
             },
@@ -82,8 +78,7 @@ namespace iExpr.Exprs.Program
             {
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(Exp, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var ov = OperationHelper.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Exp(ov));
             },
@@ -98,8 +93,7 @@ namespace iExpr.Exprs.Program
             {
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(Abs, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var ov = OperationHelper.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Abs(ov));
             },
@@ -114,8 +108,7 @@ namespace iExpr.Exprs.Program
             {
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(Sin, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var ov = OperationHelper.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Sin(ov));
             },
@@ -130,8 +123,7 @@ namespace iExpr.Exprs.Program
             {
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(Cos, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var ov = OperationHelper.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Cos(ov));
             }, 1);
@@ -145,8 +137,7 @@ namespace iExpr.Exprs.Program
             {
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(Tan, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var ov = OperationHelper.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Tan(ov));
             }, 1);
@@ -160,8 +151,7 @@ namespace iExpr.Exprs.Program
             {
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(ArcSin, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var ov = OperationHelper.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Asin(ov));
             },
@@ -176,8 +166,7 @@ namespace iExpr.Exprs.Program
             {
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(ArcCos, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var ov = OperationHelper.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Acos(ov));
             },
@@ -192,8 +181,7 @@ namespace iExpr.Exprs.Program
             {
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(ArcTan, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var ov = OperationHelper.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Atan(ov));
             },
@@ -208,8 +196,7 @@ namespace iExpr.Exprs.Program
             {
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(Ln, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var ov = OperationHelper.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Log(ov));
             }, 1);
@@ -223,8 +210,7 @@ namespace iExpr.Exprs.Program
             {
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(2, args);
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(Log, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var ov = OperationHelper.GetValue<double>(args);
                 return new ConcreteValue(System.Math.Log(ov[1]) / System.Math.Log(ov[0]));
             },

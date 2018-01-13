@@ -28,7 +28,7 @@ namespace iExpr.Exprs.Program
             }
             return new List<double>(ls.Select(x=>OperationHelper.GetValue<double>(x)));
         }
-        
+
         /// <summary>
         /// 最大值
         /// </summary>
@@ -37,8 +37,7 @@ namespace iExpr.Exprs.Program
             (FunctionArgument _args, EvalContext cal) =>
             {
                 var args = _args.Arguments;
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(Maximum, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var vs = GetAll(args, cal);
                 //var vs = OperationHelper.GetConcreteValue<double>(args);
 
@@ -54,8 +53,7 @@ namespace iExpr.Exprs.Program
             (FunctionArgument _args, EvalContext cal) =>
             {
                 var args = _args.Arguments;
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(Minimum, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var vs = GetAll(args, cal);
                 //var vs = OperationHelper.GetConcreteValue<double>(args);
 
@@ -71,8 +69,7 @@ namespace iExpr.Exprs.Program
             (FunctionArgument _args, EvalContext cal) =>
             {
                 var args = _args.Arguments;
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(Total, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var vs = GetAll(args, cal);
                 //var vs = OperationHelper.GetConcreteValue<double>(args);
 
@@ -91,8 +88,7 @@ namespace iExpr.Exprs.Program
             (FunctionArgument _args, EvalContext cal) =>
             {
                 var args = _args.Arguments;
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(Mean, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var vs = GetAll(args, cal);
                 //var vs = OperationHelper.GetConcreteValue<double>(args);
 

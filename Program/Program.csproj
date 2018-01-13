@@ -6,7 +6,7 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>iExpr.Exprs.Program</PackageId>
-    <Version>0.5.0</Version>
+    <Version>0.5.0.2</Version>
     <Product>iExpr.Exprs.Program</Product>
     <Company>Stardust D.L.</Company>
     <Authors>Stardust D.L.</Authors>
@@ -19,7 +19,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="iExpr.Core" Version="0.5.2" />
+    <PackageReference Include="iExpr.Core" Version="0.5.2.2" />
   </ItemGroup>
 
 </Project>

@@ -19,7 +19,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="iExpr.Core" Version="0.5.2" />
+    <ProjectReference Include="..\..\Libs\iExpr.Core\iExpr.Core\iExpr.Core.csproj" />
   </ItemGroup>
 
 </Project>

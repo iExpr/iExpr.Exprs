@@ -38,8 +38,7 @@ namespace iExpr.Exprs.Math
             {
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(3, args);
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(Sum, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var ov = OperationHelper.GetValue<int>(args[1], args[2]);
                 var func = OperationHelper.GetValue<FunctionValue>(args[0]);
                 int a = ov[0], b = ov[1];
@@ -88,8 +87,7 @@ namespace iExpr.Exprs.Math
             {
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(3, args);
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(Sum, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var ov = OperationHelper.GetValue<int>(args[1], args[2]);
                 var func = OperationHelper.GetValue<FunctionValue>(args[0]);
                 int a = ov[0], b = ov[1];
@@ -125,8 +123,7 @@ namespace iExpr.Exprs.Math
             (FunctionArgument _args, EvalContext cal) =>
             {
                 var args = _args.Arguments;
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(Maximum, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var vs = GetAll(args, cal);
                 //var vs = OperationHelper.GetConcreteValue<double>(args);
 
@@ -142,8 +139,7 @@ namespace iExpr.Exprs.Math
             (FunctionArgument _args, EvalContext cal) =>
             {
                 var args = _args.Arguments;
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(Minimum, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var vs = GetAll(args, cal);
                 //var vs = OperationHelper.GetConcreteValue<double>(args);
 
@@ -159,8 +155,7 @@ namespace iExpr.Exprs.Math
             (FunctionArgument _args, EvalContext cal) =>
             {
                 var args = _args.Arguments;
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(Total, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var vs = GetAll(args, cal);
                 //var vs = OperationHelper.GetConcreteValue<double>(args);
 
@@ -179,8 +174,7 @@ namespace iExpr.Exprs.Math
             (FunctionArgument _args, EvalContext cal) =>
             {
                 var args = _args.Arguments;
-                if (!OperationHelper.AssertConstantValue(args))
-                    return new ExprNodeCall(Mean, args);
+                OperationHelper.AssertCertainValueThrowIf(args);
                 var vs = GetAll(args, cal);
                 //var vs = OperationHelper.GetConcreteValue<double>(args);
 
