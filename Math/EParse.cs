@@ -18,7 +18,7 @@ namespace iExpr.Exprs.Math
             //isneg = false;
         }
 
-        public override bool Append(char c)
+        public override bool? Append(char c)
         {
             var res=base.Append(c);
             if (c == '.') pointcnt++;
@@ -26,7 +26,7 @@ namespace iExpr.Exprs.Math
             return res;
         }
 
-        public override bool Test(char c)
+        public override bool? Test(char c)
         {
             if (Flag == null)
                 return char.IsDigit(c);// || c=='-';
@@ -58,8 +58,8 @@ namespace iExpr.Exprs.Math
             base.VariableChecker = new VariableTokenChecker();
             base.BasicTokenChecker = new BasicTokenChecker();
             base.Constants = new ConstantList();
-            Constants.Add(new ConstantToken("e", new ConcreteValue(System.Math.E)));
-            Constants.Add(new ConstantToken("pi", new ConcreteValue(System.Math.PI)));
+            Constants.Add(new ConstantToken("e", new ReadOnlyConcreteValue(System.Math.E)));
+            Constants.Add(new ConstantToken("pi", new ReadOnlyConcreteValue(System.Math.PI)));
             Constants.AddFunction(Operators.Abs);
             Constants.AddFunction(Operators.Sin);
             Constants.AddFunction(Operators.Cos);

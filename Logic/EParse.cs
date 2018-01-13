@@ -9,7 +9,7 @@ namespace iExpr.Exprs.Logic
 {
     internal class BasicTokenChecker : TokenChecker
     {
-        public override bool Test(char c)
+        public override bool? Test(char c)
         {
             if (Flag != null) return false;
             return c=='0' || c=='1';
@@ -31,10 +31,10 @@ namespace iExpr.Exprs.Logic
             base.VariableChecker = new VariableTokenChecker();
             base.BasicTokenChecker = new BasicTokenChecker();
             base.Constants = new ConstantList();
-            Constants.Add(new ConstantToken("true", new ConcreteValue(true)));
-            Constants.Add(new ConstantToken("false", new ConcreteValue(false)));
-            Constants.Add(new ConstantToken("True", new ConcreteValue(true)));
-            Constants.Add(new ConstantToken("False", new ConcreteValue(false)));
+            Constants.Add(new ConstantToken("true", new ReadOnlyConcreteValue(true)));
+            Constants.Add(new ConstantToken("false", new ReadOnlyConcreteValue(false)));
+            Constants.Add(new ConstantToken("True", new ReadOnlyConcreteValue(true)));
+            Constants.Add(new ConstantToken("False", new ReadOnlyConcreteValue(false)));
             base.BuildOpt();
         }
 
