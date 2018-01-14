@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest", "UnitTest\UnitTe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Math", "Math\Math.csproj", "{17536B71-74C6-46E6-8BA7-6577651B66DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Program", "Program\Program.csproj", "{F4DA675B-0CE5-4D84-90F7-7EC0DB25E2D1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{17536B71-74C6-46E6-8BA7-6577651B66DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17536B71-74C6-46E6-8BA7-6577651B66DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17536B71-74C6-46E6-8BA7-6577651B66DE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F4DA675B-0CE5-4D84-90F7-7EC0DB25E2D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F4DA675B-0CE5-4D84-90F7-7EC0DB25E2D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F4DA675B-0CE5-4D84-90F7-7EC0DB25E2D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F4DA675B-0CE5-4D84-90F7-7EC0DB25E2D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

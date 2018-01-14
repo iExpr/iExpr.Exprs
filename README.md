@@ -21,7 +21,8 @@ The different kinds of expressions in iExpr.
 | ------------- |:-------------:                    | --------- |
 | Logic         | ![](http://progressed.io/bar/100) | 0.5.1     |
 | Math          | ![](http://progressed.io/bar/40)  | 0.4.1     |
-| Code          | ![](http://progressed.io/bar/60)   | 0.5.0     |
+
+> The code part has been moved to [ExprSharp](https://github.com/ExprSharp).
 
 # Dependencies
 
