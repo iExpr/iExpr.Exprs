@@ -54,7 +54,7 @@ namespace iExpr.Exprs.Math
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(2, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<long>(args);
+                var ov = cal.GetValue<long>(args);
                 return new ConcreteValue(gcd(ov[0], ov[1]));
             },
             2);
@@ -69,7 +69,7 @@ namespace iExpr.Exprs.Math
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(2, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<long>(args);
+                var ov = cal.GetValue<long>(args);
                 long g = gcd(ov[0], ov[1]);
                 return new ConcreteValue(ov[0]/g*ov[1]);
             },

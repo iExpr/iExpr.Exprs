@@ -20,7 +20,7 @@ namespace iExpr.Exprs.Math
                 var args = _args.Arguments;
                 if (args.Length == 0) return new SetValue();
                 OperationHelper.AssertCertainValueThrowIf<CollectionValue>(args);
-                var ov = OperationHelper.GetValue<CollectionValue>(args);
+                var ov = cal.GetValue<CollectionValue>(args);
                 HashSet<IValue> set = new HashSet<IValue>(ov[0]);
                 for (int i = 1; i < ov.Length; i++)
                 {
@@ -37,7 +37,7 @@ namespace iExpr.Exprs.Math
                 var args = _args.Arguments;
                 if (args.Length == 0) return new SetValue();
                 OperationHelper.AssertCertainValueThrowIf<CollectionValue>(args);
-                var ov = OperationHelper.GetValue<CollectionValue>(args);
+                var ov = cal.GetValue<CollectionValue>(args);
                 HashSet<IValue> set = new HashSet<IValue>(ov[0]);
                 for (int i = 1; i < ov.Length; i++)
                 {
@@ -54,7 +54,7 @@ namespace iExpr.Exprs.Math
                 var args = _args.Arguments;
                 if (args.Length == 0) return new SetValue();
                 OperationHelper.AssertCertainValueThrowIf<CollectionValue>(args);
-                var ov = OperationHelper.GetValue<CollectionValue>(args);
+                var ov = cal.GetValue<CollectionValue>(args);
                 HashSet<IValue> set = new HashSet<IValue>(ov[0]);
                 for (int i = 1; i < ov.Length; i++)
                 {

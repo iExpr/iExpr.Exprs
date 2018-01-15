@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using iExpr.Exceptions;
-using iExpr.Parser;
+using iExpr.Parsers;
 using iExpr.Values;
 
 namespace iExpr.Exprs.Logic
@@ -16,7 +16,7 @@ namespace iExpr.Exprs.Logic
         }
     }
 
-    public class EParse : Parser.ParseEnvironment
+    public class EParse : Parsers.ParseEnvironment
     {
         public EParse()
         {

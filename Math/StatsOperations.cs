@@ -26,7 +26,7 @@ namespace iExpr.Exprs.Math
                         break;
                 }
             }
-            return new List<double>(ls.Select(x=>OperationHelper.GetValue<double>(x)));
+            return new List<double>(ls.Select(x=>context.GetValue<double>(x)));
         }
 
         /// <summary>
@@ -39,8 +39,8 @@ namespace iExpr.Exprs.Math
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(3, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<int>(args[1], args[2]);
-                var func = OperationHelper.GetValue<FunctionValue>(args[0]);
+                var ov = cal.GetValue<int>(args[1], args[2]);
+                var func = cal.GetValue<FunctionValue>(args[0]);
                 int a = ov[0], b = ov[1];
                 double res = 0;
                 if (func.ArgumentCount == 1)
@@ -51,7 +51,7 @@ namespace iExpr.Exprs.Math
                 {
                     try
                     {
-                        double r = OperationHelper.GetValue<double>(func.EvaluateFunc(new FunctionArgument(new ConcreteValue(i)),cal));
+                        double r = cal.GetValue<double>(func.EvaluateFunc(new FunctionArgument(new ConcreteValue(i)),cal));
                         return r;
                     }
                     catch
@@ -69,7 +69,7 @@ namespace iExpr.Exprs.Math
                 }
                 else if (func.ArgumentCount == 0)
                 {
-                    double r = OperationHelper.GetValue<double>(func.EvaluateFunc(new FunctionArgument(), cal));
+                    double r = cal.GetValue<double>(func.EvaluateFunc(new FunctionArgument(), cal));
                     res += r * (b - a + 1);
                 }
                 else return new ExprNodeCall(Sum, args);//包含多个变量
@@ -88,8 +88,8 @@ namespace iExpr.Exprs.Math
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(3, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<int>(args[1], args[2]);
-                var func = OperationHelper.GetValue<FunctionValue>(args[0]);
+                var ov = cal.GetValue<int>(args[1], args[2]);
+                var func = cal.GetValue<FunctionValue>(args[0]);
                 int a = ov[0], b = ov[1];
                 double res = 1;
                 if (func.ArgumentCount == 1)
@@ -97,7 +97,7 @@ namespace iExpr.Exprs.Math
                     for (long i = a; i <= b; i++)
                     {
                         cal.AssertNotCancel();
-                        double r = OperationHelper.GetValue<double>(func.EvaluateFunc(new FunctionArgument(new ConcreteValue(i)), cal));
+                        double r = cal.GetValue<double>(func.EvaluateFunc(new FunctionArgument(new ConcreteValue(i)), cal));
                         res *= r;
                     }
                 }
@@ -105,7 +105,7 @@ namespace iExpr.Exprs.Math
                 {
                     for (int i = a; i <= b; i++)
                     {
-                        double r = OperationHelper.GetValue<double>(func.EvaluateFunc(new FunctionArgument(new ConcreteValue(i)), cal));
+                        double r = cal.GetValue<double>(func.EvaluateFunc(new FunctionArgument(new ConcreteValue(i)), cal));
                         res *= r;
                     }
                 }

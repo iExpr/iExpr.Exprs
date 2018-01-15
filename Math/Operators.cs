@@ -20,7 +20,7 @@ namespace iExpr.Exprs.Math
             {
                 OperationHelper.AssertArgsNumberThrowIf(2, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<double>(args);
+                var ov = cal.GetValue<double>(args);
                 return new ConcreteValue(ov[0] + ov[1]);
             },
             null,
@@ -37,7 +37,7 @@ namespace iExpr.Exprs.Math
             {
                 OperationHelper.AssertArgsNumberThrowIf(2, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<double>(args);
+                var ov = cal.GetValue<double>(args);
                     return new ConcreteValue(ov[0] - ov[1]);
             },
             (IExpr[] args) =>
@@ -57,7 +57,7 @@ namespace iExpr.Exprs.Math
             {
                 OperationHelper.AssertArgsNumberThrowIf(2, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<double>(args);
+                var ov = cal.GetValue<double>(args);
                 return new ConcreteValue(ov[0] * ov[1]);
             },
             null,
@@ -74,7 +74,7 @@ namespace iExpr.Exprs.Math
             {
                 OperationHelper.AssertArgsNumberThrowIf(2, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<double>(args);
+                var ov = cal.GetValue<double>(args);
                 return new ConcreteValue(ov[0] / ov[1]);
             },
             null,
@@ -91,7 +91,7 @@ namespace iExpr.Exprs.Math
            {
                OperationHelper.AssertArgsNumberThrowIf(2, args);
                OperationHelper.AssertCertainValueThrowIf(args);
-               var ov = OperationHelper.GetValue<double>(args);
+               var ov = cal.GetValue<double>(args);
                return new ConcreteValue(ov[0] % ov[1]);
            },
            null,
@@ -108,7 +108,7 @@ namespace iExpr.Exprs.Math
             {
                 OperationHelper.AssertArgsNumberThrowIf(2, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<double>(args);
+                var ov = cal.GetValue<double>(args);
                 return new ConcreteValue(System.Math.Pow(ov[0], ov[1]));
             },
             null,
@@ -126,7 +126,7 @@ namespace iExpr.Exprs.Math
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<double>(args[0]);
+                var ov = cal.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Ceiling(ov));
             },
             1);
@@ -141,7 +141,7 @@ namespace iExpr.Exprs.Math
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<double>(args[0]);
+                var ov = cal.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Floor(ov));
             },
             1);
@@ -156,7 +156,7 @@ namespace iExpr.Exprs.Math
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<double>(args[0]);
+                var ov = cal.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Round(ov));
             },
             1);
@@ -171,7 +171,7 @@ namespace iExpr.Exprs.Math
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<double>(args[0]);
+                var ov = cal.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Sign(ov));
             },
             1);
@@ -186,7 +186,7 @@ namespace iExpr.Exprs.Math
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<double>(args[0]);
+                var ov = cal.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Exp(ov));
             },
             1);
@@ -200,7 +200,7 @@ namespace iExpr.Exprs.Math
             {
                 OperationHelper.AssertArgsNumberThrowIf(2, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<double>(args);
+                var ov = cal.GetValue<double>(args);
                 return new ConcreteValue(ov[0]==ov[1]);
             },
             (IExpr[] args) => string.Join("==", args.Select((IExpr exp) => Operator.BlockToString(exp))),
@@ -217,7 +217,7 @@ namespace iExpr.Exprs.Math
             {
                 OperationHelper.AssertArgsNumberThrowIf(2, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<double>(args);
+                var ov = cal.GetValue<double>(args);
                 return new ConcreteValue(ov[0] != ov[1]);
             },
             (IExpr[] args) => string.Join("!=", args.Select((IExpr exp) => Operator.BlockToString(exp))),
@@ -234,7 +234,7 @@ namespace iExpr.Exprs.Math
             {
                 OperationHelper.AssertArgsNumberThrowIf(2, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<double>(args);
+                var ov = cal.GetValue<double>(args);
                 return new ConcreteValue(ov[0] > ov[1]);
             },
             (IExpr[] args) => string.Join(">", args.Select((IExpr exp) => Operator.BlockToString(exp))),
@@ -251,7 +251,7 @@ namespace iExpr.Exprs.Math
             {
                 OperationHelper.AssertArgsNumberThrowIf(2, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<double>(args);
+                var ov = cal.GetValue<double>(args);
                 return new ConcreteValue(ov[0] < ov[1]);
             },
             (IExpr[] args) => string.Join("<", args.Select((IExpr exp) => Operator.BlockToString(exp))),
@@ -268,7 +268,7 @@ namespace iExpr.Exprs.Math
             {
                 OperationHelper.AssertArgsNumberThrowIf(2, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<double>(args);
+                var ov = cal.GetValue<double>(args);
                 return new ConcreteValue(ov[0] >= ov[1]);
             },
             (IExpr[] args) => string.Join(">=", args.Select((IExpr exp) => Operator.BlockToString(exp))),
@@ -285,7 +285,7 @@ namespace iExpr.Exprs.Math
             {
                 OperationHelper.AssertArgsNumberThrowIf(2, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<double>(args);
+                var ov = cal.GetValue<double>(args);
                 return new ConcreteValue(ov[0] <= ov[1]);
             },
             (IExpr[] args) => string.Join("<=", args.Select((IExpr exp) => Operator.BlockToString(exp))),
@@ -302,7 +302,7 @@ namespace iExpr.Exprs.Math
             {
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var p = OperationHelper.GetValue<bool>(args[0]);
+                var p = cal.GetValue<bool>(args[0]);
                 return new ConcreteValue(!p);
             },
             (IExpr[] args) => $"~{Operator.BlockToString(args[0])}",
@@ -319,7 +319,7 @@ namespace iExpr.Exprs.Math
             {
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var p = OperationHelper.GetValue<int>(args[0]);
+                var p = cal.GetValue<int>(args[0]);
                 double s = 1;
                 for (int i = p; i >= 2; i--) s *= i;
                 return new ConcreteValue(s);
@@ -339,7 +339,7 @@ namespace iExpr.Exprs.Math
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<double>(args[0]);
+                var ov = cal.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Abs(ov));
             },
             1);
@@ -354,7 +354,7 @@ namespace iExpr.Exprs.Math
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<double>(args[0]);
+                var ov = cal.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Sin(ov));
             },
             1);
@@ -369,7 +369,7 @@ namespace iExpr.Exprs.Math
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<double>(args[0]);
+                var ov = cal.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Cos(ov));
             }, 1);
 
@@ -383,7 +383,7 @@ namespace iExpr.Exprs.Math
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<double>(args[0]);
+                var ov = cal.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Tan(ov));
             }, 1);
 
@@ -397,7 +397,7 @@ namespace iExpr.Exprs.Math
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<double>(args[0]);
+                var ov = cal.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Asin(ov));
             },
             1);
@@ -412,7 +412,7 @@ namespace iExpr.Exprs.Math
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<double>(args[0]);
+                var ov = cal.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Acos(ov));
             },
             1);
@@ -427,7 +427,7 @@ namespace iExpr.Exprs.Math
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<double>(args[0]);
+                var ov = cal.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Atan(ov));
             },
             1);
@@ -442,7 +442,7 @@ namespace iExpr.Exprs.Math
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<double>(args[0]);
+                var ov = cal.GetValue<double>(args[0]);
                 return new ConcreteValue(System.Math.Log(ov));
             }, 1);
 
@@ -456,7 +456,7 @@ namespace iExpr.Exprs.Math
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(2, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = OperationHelper.GetValue<double>(args);
+                var ov = cal.GetValue<double>(args);
                 return new ConcreteValue(System.Math.Log(ov[1]) / System.Math.Log(ov[0]));
             },
             2);

@@ -19,7 +19,7 @@ namespace iExpr.Exprs.Logic
             {
                 OperationHelper.AssertArgsNumberThrowIf(2, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var bs = OperationHelper.GetValue<bool>(args);
+                var bs = cal.GetValue<bool>(args);
                 return new ConcreteValue(!bs[0] || bs[1]);
             },
             null,
@@ -36,7 +36,7 @@ namespace iExpr.Exprs.Logic
             {
                 OperationHelper.AssertArgsNumberThrowIf(2, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var bs = OperationHelper.GetValue<bool>(args);
+                var bs = cal.GetValue<bool>(args);
                 return new ConcreteValue(bs[0] == bs[1]);
             },
             null,
@@ -53,7 +53,7 @@ namespace iExpr.Exprs.Logic
             {
                 OperationHelper.AssertArgsNumberThrowIf(2, args);
             OperationHelper.AssertCertainValueThrowIf(args);
-                var bs = OperationHelper.GetValue<bool>(args);
+                var bs = cal.GetValue<bool>(args);
                 return new ConcreteValue(bs[0] || bs[1]);
             },
             null,
@@ -70,7 +70,7 @@ namespace iExpr.Exprs.Logic
             {
                 OperationHelper.AssertArgsNumberThrowIf(2, args);
             OperationHelper.AssertCertainValueThrowIf(args);
-                var bs = OperationHelper.GetValue<bool>(args);
+                var bs = cal.GetValue<bool>(args);
                 return new ConcreteValue(bs[0] ^ bs[1]);
             },
             null,
@@ -87,7 +87,7 @@ namespace iExpr.Exprs.Logic
             {
             OperationHelper.AssertArgsNumberThrowIf(2, args);
             OperationHelper.AssertCertainValueThrowIf(args);
-                var bs = OperationHelper.GetValue<bool>(args);
+                var bs = cal.GetValue<bool>(args);
                 return new ConcreteValue(bs[0] && bs[1]);
             },
             null,
@@ -104,7 +104,7 @@ namespace iExpr.Exprs.Logic
             {
                 OperationHelper.AssertArgsNumberThrowIf(1, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var p = OperationHelper.GetValue<bool>(args[0]);
+                var p = cal.GetValue<bool>(args[0]);
                 return new ConcreteValue(!p);
             },
             (IExpr[] args) => $"!{Operator.BlockToString(args[0])}",

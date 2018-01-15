@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using iExpr.Exceptions;
-using iExpr.Parser;
+using iExpr.Parsers;
 using iExpr.Values;
 
 namespace iExpr.Exprs.Math
@@ -21,7 +21,7 @@ namespace iExpr.Exprs.Math
         public override bool? Append(char c)
         {
             var res=base.Append(c);
-            if (c == '.') pointcnt++;
+            if (c == '.') { pointcnt++; return null; }
             //if (c == '-') isneg = true;
             return res;
         }
@@ -30,12 +30,12 @@ namespace iExpr.Exprs.Math
         {
             if (Flag == null)
                 return char.IsDigit(c);// || c=='-';
-            if (c == '.') return pointcnt == 0;
+            if (c == '.') if (pointcnt == 0) return null; else return false;
             return char.IsDigit(c);
         }
     }
 
-    public class EParse : Parser.ParseEnvironment
+    public class EParse : Parsers.ParseEnvironment
     {
         public EParse()
         {
@@ -55,6 +55,7 @@ namespace iExpr.Exprs.Math
             base.Operations.Add(Operators.Factorial);
             base.Operations.Add(Operators.Not);
             base.Operations.Add(iExpr.Exprs.Core.CoreOperations.Lambda);
+            base.Operations.Add(iExpr.Exprs.Core.CoreOperations.In);
             base.VariableChecker = new VariableTokenChecker();
             base.BasicTokenChecker = new BasicTokenChecker();
             base.Constants = new ConstantList();
@@ -75,6 +76,7 @@ namespace iExpr.Exprs.Math
             Constants.AddFunction(Operators.Ln);
             Constants.AddFunction(Operators.Log);
             Constants.AddFunction(iExpr.Exprs.Core.CoreOperations.Length);
+            Constants.AddFunction(iExpr.Exprs.Core.CoreOperations.HasVariable);
             Constants.AddFunction(iExpr.Exprs.Core.CoreOperations.List);
             Constants.AddFunction(iExpr.Exprs.Core.CoreOperations.Set);
             Constants.AddFunction(iExpr.Exprs.Core.CoreOperations.Tuple);
@@ -94,7 +96,7 @@ namespace iExpr.Exprs.Math
 
         public override IValue GetBasicValue(Symbol symbol)
         {
-            return new ConcreteValue(double.Parse(symbol.Value));
+            return new ConcreteValue(new RealNumber(double.Parse(symbol.Value)));
         }
     }
 }
