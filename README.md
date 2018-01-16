@@ -19,8 +19,9 @@ The different kinds of expressions in iExpr.
 
 |Items          | Progress                          |   Version | NuGet|
 | ------------- |:-------------:                    | --------- |------|
-| Logic         | ![](http://progressed.io/bar/100) | 0.5.1     |[![](https://img.shields.io/badge/nuget-v0.5.1-brightgreen.svg)](https://www.nuget.org/packages/iExpr.Exprs.Logic/0.5.1)|
-| Math          | ![](http://progressed.io/bar/50)  | 0.4.1     |[![](https://img.shields.io/badge/nuget-v0.4.1-brightgreen.svg)](https://www.nuget.org/packages/iExpr.Exprs.Math/0.4.1)|
+| Logic         | ![](http://progressed.io/bar/100) | 0.5.2     |[![](https://img.shields.io/badge/nuget-v0.5.1-brightgreen.svg)](https://www.nuget.org/packages/iExpr.Exprs.Logic/0.5.1)|
+| Math          | ![](http://progressed.io/bar/50)  | 0.4.2     |[![](https://img.shields.io/badge/nuget-v0.4.1-brightgreen.svg)](https://www.nuget.org/packages/iExpr.Exprs.Math/0.4.1)|
+| Program       | ![](http://progressed.io/bar/60)  | 0.5.0     ||
 
 > The code part has been moved to [ExprSharp](https://github.com/ExprSharp).
 

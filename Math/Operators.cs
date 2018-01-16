@@ -35,10 +35,19 @@ namespace iExpr.Exprs.Math
             "-",
             (IExpr[] args, EvalContext cal) =>
             {
-                OperationHelper.AssertArgsNumberThrowIf(2, args);
+                //OperationHelper.AssertArgsNumberThrowIf(2, args);
                 OperationHelper.AssertCertainValueThrowIf(args);
-                var ov = cal.GetValue<double>(args);
+                if (args.Length == 2)
+                {
+                    var ov = cal.GetValue<double>(args);
                     return new ConcreteValue(ov[0] - ov[1]);
+                }
+                else if (args.Length == 1)
+                {
+                    var ov = cal.GetValue<double>(args[0]);
+                    return new ConcreteValue(-ov);
+                }
+                else throw new Exceptions.EvaluateException("The number of arguments is wrong");
             },
             (IExpr[] args) =>
             {

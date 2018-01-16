@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>iExpr.Exprs.Math</RootNamespace>
-    <AssemblyVersion>0.4.1.0</AssemblyVersion>
-    <FileVersion>0.4.1.0</FileVersion>
+    <AssemblyVersion>0.4.2.0</AssemblyVersion>
+    <FileVersion>0.4.2.0</FileVersion>
     <RepositoryType>Git</RepositoryType>
     <RepositoryUrl>https://github.com/iExpr/iExpr.Exprs</RepositoryUrl>
     <PackageProjectUrl>https://github.com/iExpr/iExpr.Exprs/wiki</PackageProjectUrl>
@@ -13,7 +13,7 @@
     <Description>Some math operations for iExpr.</Description>
     <Product>iExpr.Exprs.Math</Product>
     <PackageId>iExpr.Exprs.Math</PackageId>
-    <Version>0.4.1</Version>
+    <Version>0.4.2</Version>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Stardust D.L.</Authors>
@@ -21,7 +21,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="iExpr.Core" Version="0.5.2.7" />
+    <PackageReference Include="iExpr.Core" Version="0.5.2.10" />
   </ItemGroup>
 
 </Project>
