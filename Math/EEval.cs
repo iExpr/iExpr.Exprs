@@ -11,31 +11,31 @@ namespace iExpr.Exprs.Math
     {
         protected EEContext() { }
 
-        public override EvalContext GetChild()
+        public override EvalContext GetChild(VariableFindMode mode = VariableFindMode.UpAll)
         {
             return new EEContext() { Evaluator = Evaluator, CancelToken = CancelToken, Parent = this };
         }
 
-        protected override T GetValue<T>(ConcreteValue exp)
+        protected override T ConvertValue<T>(object val)
         {
             if (typeof(T).IsAssignableFrom(typeof(RealNumber)))
             {
                 try
                 {
-                    double d = Convert.ToDouble(exp.Value);
+                    double d = Convert.ToDouble(val);
                     return (T)(object)(new RealNumber(d));
                 }
                 catch { }
             }
-            if (exp.Value is RealNumber)
+            if (val is RealNumber)
             {
                 try
                 {
-                    return (T)Convert.ChangeType((double)((RealNumber)exp.Value), typeof(T));
+                    return (T)Convert.ChangeType((double)((RealNumber)val), typeof(T));
                 }
                 catch { }
             }
-            return base.GetValue<T>(exp);
+            return base.ConvertValue<T>(val);
         }
 
         public new static EvalContext Create(CancellationTokenSource cancel)

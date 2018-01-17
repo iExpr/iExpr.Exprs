@@ -9,6 +9,16 @@ namespace iExpr.Exprs.Program.Helpers
 
     }
 
+    /*public class BYield : RuntimeBreak
+    {
+        public IExpr Value { get; set; }
+
+        public BYield(IExpr val)
+        {
+            Value = val;
+        }
+    }*/
+
     public class BReturn : RuntimeBreak
     {
         public IExpr Value { get; set; }

@@ -43,6 +43,14 @@ namespace iExpr.Exprs.Program
                 }
                 );
 
+        public static PreFunctionValue Dict { get; } = new PreFunctionValue(
+                "dict",
+                (FunctionArgument _args, EvalContext cal) =>
+                {
+                    return new DictionaryValue();
+                }
+                );
+
         public static PreFunctionValue Func { get; } = new PreFunctionValue(
                 "func",
                 (FunctionArgument _args, EvalContext cal) =>
@@ -84,16 +92,19 @@ namespace iExpr.Exprs.Program
                 var left = args[0];
                 var a0 = cal.Evaluate(left);
                 //TODO: 这里没有检查IValue要求
+                var av = OperationHelper.GetValue(args[1]);
                 switch (a0)
                 {
                     case ConcreteValue v://可能是列表中的元素，也可能得到常量列表中的ReadOnlyValue，但会赋值错误
-                            v.Value = OperationHelper.GetValue(args[1]);
-                            return v;
+                        v.Value = av;
+                        return v;
                     default:
-                        if(left is VariableToken)//这是可能是a0可能Function
+                        if(left is VariableToken)
                         {
-                            cal.SetVariableValue((left as VariableToken).ID, args[1]);
-                            return args[1];
+                            
+                            var t = av is ConcreteValue ? (ConcreteValue)av : new ConcreteValue(av);
+                            cal.SetVariableValue((left as VariableToken).ID, t);
+                            return t;
                         }
                         throw new EvaluateException("The left expr of assign is not supported.");
                 }
@@ -109,9 +120,13 @@ namespace iExpr.Exprs.Program
             {
                 if (!(args[0] is VariableToken)) throw new Exception("The left must be a variable.");
                 string id = (args[0] as VariableToken).ID;
-                cal.Variables.Set(id, args[1]);//和Assign只有这里不同
-                return args[1];
+                var av = OperationHelper.GetValue(args[1]);
+                var t= av is ConcreteValue ? (ConcreteValue)av : new ConcreteValue(av);
+                cal.Variables.Set(id, t);
+                return t;
             }, null, (double)Priority.lowest, Association.Right, 2, OperationHelper.GetSelfCalculate(0)
             );
+
+
     }
 }

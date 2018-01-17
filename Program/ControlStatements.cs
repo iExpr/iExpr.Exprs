@@ -61,7 +61,7 @@ namespace iExpr.Exprs.Program
             var children = args.Contents;
             try
             {
-                CollectionValue l = cal.GetValue<CollectionValue>(cal.Evaluate(main.Collection));
+                IEnumerableValue l = cal.GetValue<IEnumerableValue>(cal.Evaluate(main.Collection));
                 foreach (var t in l)
                 {
                     cal.Variables.Set(main.Vid, t);
@@ -273,7 +273,7 @@ namespace iExpr.Exprs.Program
             (double)Priority.lowest,
             Association.Right,
             1);
-
+        
         public static Operator Break { get; } = new Operator(
             "break",
             (IExpr[] args, EvalContext cal) =>
