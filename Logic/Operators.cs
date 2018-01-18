@@ -17,8 +17,8 @@ namespace iExpr.Exprs.Logic
             "->",
             (IExpr[] args, EvalContext cal) =>
             {
-                OperationHelper.AssertArgsNumberThrowIf(2, args);
-                OperationHelper.AssertCertainValueThrowIf(args);
+                OperationHelper.AssertArgsNumberThrowIf(Imply,2, args);
+                OperationHelper.AssertCertainValueThrowIf(Imply,args);
                 var bs = cal.GetValue<bool>(args);
                 return new ConcreteValue(!bs[0] || bs[1]);
             },
@@ -34,8 +34,8 @@ namespace iExpr.Exprs.Logic
             "<->",
             (IExpr[] args, EvalContext cal) =>
             {
-                OperationHelper.AssertArgsNumberThrowIf(2, args);
-                OperationHelper.AssertCertainValueThrowIf(args);
+                OperationHelper.AssertArgsNumberThrowIf(Same,2, args);
+                OperationHelper.AssertCertainValueThrowIf(Same,args);
                 var bs = cal.GetValue<bool>(args);
                 return new ConcreteValue(bs[0] == bs[1]);
             },
@@ -51,8 +51,8 @@ namespace iExpr.Exprs.Logic
             "|",
             (IExpr[] args, EvalContext cal) =>
             {
-                OperationHelper.AssertArgsNumberThrowIf(2, args);
-            OperationHelper.AssertCertainValueThrowIf(args);
+                OperationHelper.AssertArgsNumberThrowIf(Or,2, args);
+            OperationHelper.AssertCertainValueThrowIf(Or,args);
                 var bs = cal.GetValue<bool>(args);
                 return new ConcreteValue(bs[0] || bs[1]);
             },
@@ -68,8 +68,8 @@ namespace iExpr.Exprs.Logic
             "^",
             (IExpr[] args, EvalContext cal) =>
             {
-                OperationHelper.AssertArgsNumberThrowIf(2, args);
-            OperationHelper.AssertCertainValueThrowIf(args);
+                OperationHelper.AssertArgsNumberThrowIf(Xor,2, args);
+            OperationHelper.AssertCertainValueThrowIf(Xor,args);
                 var bs = cal.GetValue<bool>(args);
                 return new ConcreteValue(bs[0] ^ bs[1]);
             },
@@ -85,8 +85,8 @@ namespace iExpr.Exprs.Logic
             "&",
             (IExpr[] args, EvalContext cal) =>
             {
-            OperationHelper.AssertArgsNumberThrowIf(2, args);
-            OperationHelper.AssertCertainValueThrowIf(args);
+            OperationHelper.AssertArgsNumberThrowIf(And,2, args);
+            OperationHelper.AssertCertainValueThrowIf(And,args);
                 var bs = cal.GetValue<bool>(args);
                 return new ConcreteValue(bs[0] && bs[1]);
             },
@@ -102,8 +102,8 @@ namespace iExpr.Exprs.Logic
             "!",
             (IExpr[] args, EvalContext cal) =>
             {
-                OperationHelper.AssertArgsNumberThrowIf(1, args);
-                OperationHelper.AssertCertainValueThrowIf(args);
+                OperationHelper.AssertArgsNumberThrowIf(Not,1, args);
+                OperationHelper.AssertCertainValueThrowIf(Not,args);
                 var p = cal.GetValue<bool>(args[0]);
                 return new ConcreteValue(!p);
             },

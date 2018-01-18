@@ -6,7 +6,7 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>iExpr.Exprs.Program</PackageId>
-    <Version>0.5.1</Version>
+    <Version>0.5.3</Version>
     <Product>iExpr.Exprs.Program</Product>
     <Company>Stardust D.L.</Company>
     <Authors>Stardust D.L.</Authors>
@@ -16,10 +16,20 @@
     <PackageProjectUrl>https://github.com/iExpr/iExpr.Exprs/wiki</PackageProjectUrl>
     <RepositoryUrl>https://github.com/iExpr/iExpr.Exprs</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>StardustDL-Key.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="iExpr.Core" Version="0.5.3" />
+    <PackageReference Include="iExpr.Core" Version="0.5.3.5" />
   </ItemGroup>
 
 </Project>

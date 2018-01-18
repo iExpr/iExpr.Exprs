@@ -52,8 +52,8 @@ namespace iExpr.Exprs.Math
             (FunctionArgument _args, EvalContext cal) =>
             {
                 var args = _args.Arguments;
-                OperationHelper.AssertArgsNumberThrowIf(2, args);
-                OperationHelper.AssertCertainValueThrowIf(args);
+                OperationHelper.AssertArgsNumberThrowIf(Gcd,2, args);
+                OperationHelper.AssertCertainValueThrowIf(Gcd,args);
                 var ov = cal.GetValue<long>(args);
                 return new ConcreteValue(gcd(ov[0], ov[1]));
             },

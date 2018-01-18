@@ -6,7 +6,7 @@
     <PackageId>iExpr.Exprs.Logic</PackageId>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>0.5.2</Version>
+    <Version>0.5.2.1</Version>
     <Authors>Stardust D.L.</Authors>
     <Company>Stardust D.L.</Company>
     <Product>iExpr.Exprs.Logic</Product>
@@ -16,10 +16,12 @@
     <PackageProjectUrl>https://github.com/iExpr/iExpr.Exprs/wiki</PackageProjectUrl>
     <RepositoryUrl>https://github.com/iExpr/iExpr.Exprs</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>StardustDL-Key.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="iExpr.Core" Version="0.5.3" />
+    <PackageReference Include="iExpr.Core" Version="0.5.3.5" />
   </ItemGroup>
 
 </Project>

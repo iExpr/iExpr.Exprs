@@ -213,7 +213,7 @@ namespace iExpr.Exprs.Program
                 (FunctionArgument _args, EvalContext cal) =>
                 {
                     var args = _args.Arguments;
-                    OperationHelper.AssertArgsNumberThrowIf(3, args);
+                    OperationHelper.AssertArgsNumberThrowIf(For,3, args);
                     IExpr begin = args[0], cond = args[1], step = args[2];
                     return new ForFunctionValue(begin, cond, step);
                 },
@@ -225,8 +225,10 @@ namespace iExpr.Exprs.Program
             (FunctionArgument _args, EvalContext cal) =>
             {
                 var args = _args.Arguments;
-                OperationHelper.AssertArgsNumberThrowIf(2, args);
-                if (!(args[1] is VariableToken)) throw new iExpr.Exceptions.EvaluateException("not a variable token.");
+                OperationHelper.AssertArgsNumberThrowIf(ForEach,2, args);
+                if (!(args[1] is VariableToken))
+                    ExceptionHelper.RaiseInvalidExpressionFailed(ForEach, args[1], "not a variable token.");
+                
                 return new ForeachFunctionValue(args[0],(args[1] as VariableToken).ID);
             },2, true
             );
@@ -237,7 +239,7 @@ namespace iExpr.Exprs.Program
             (FunctionArgument _args, EvalContext cal) =>
             {
                 var args = _args.Arguments;
-                OperationHelper.AssertArgsNumberThrowIf(1, args);
+                OperationHelper.AssertArgsNumberThrowIf(While,1, args);
                 return new WhileFunctionValue(args[0]);
             },1, true
             );
@@ -247,7 +249,7 @@ namespace iExpr.Exprs.Program
             (FunctionArgument _args, EvalContext cal) =>
             {
                 var args = _args.Arguments;
-                OperationHelper.AssertArgsNumberThrowIf(1, args);
+                OperationHelper.AssertArgsNumberThrowIf(DoWhile,1, args);
                 return new DoWhileFunctionValue(args[0]);
             }, 1, true
             );
@@ -257,7 +259,7 @@ namespace iExpr.Exprs.Program
             (FunctionArgument _args, EvalContext cal) =>
             {
                 var args = _args.Arguments;
-                OperationHelper.AssertArgsNumberThrowIf(1, args);
+                OperationHelper.AssertArgsNumberThrowIf(If,1, args);
                 return new IfFunctionValue(args[0]);
             }, 1, true
             );
@@ -266,7 +268,7 @@ namespace iExpr.Exprs.Program
             "return",
             (IExpr[] args, EvalContext cal) =>
             {
-                OperationHelper.AssertArgsNumberThrowIf(1, args);
+                OperationHelper.AssertArgsNumberThrowIf(Return,1, args);
                 throw new BReturn(args[0]);
             },
             (IExpr[] args) => $"return {Operator.BlockToString(args[0])}",

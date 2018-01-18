@@ -1,10 +1,11 @@
-﻿using System;
+﻿using iExpr.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace iExpr.Exprs.Program.Helpers
 {
-    public class RuntimeBreak : Exception
+    public class RuntimeBreak : IgnoredException
     {
 
     }
