@@ -116,7 +116,7 @@ namespace iExpr.Exprs.Program
                     }
                     return BuiltinValues.Null;
                 },
-                -1
+                -1,false, new EvalContextStartupInfo(true, false)
                 );
 
         public static IExpr AssignFunc(object sender,object v,object val,EvalContext cal)
@@ -282,7 +282,7 @@ namespace iExpr.Exprs.Program
                         return r;
                     default://NativeExprValue
                         {
-                            var vr = cal.Evaluate(args[0]);
+                            var vr = args[0];//variableToken won't be a nativeExprValue
                             var av = OperationHelper.GetValue(args[1]);
                             //TODO: 这里没有检查IValue要求
                             return ReAssignFunc(ReAssign, vr, av, cal);

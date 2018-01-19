@@ -21,7 +21,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="iExpr.Core" Version="0.5.3.5" />
+    <PackageReference Include="iExpr.Core" Version="0.5.3.15" />
   </ItemGroup>
 
 </Project>

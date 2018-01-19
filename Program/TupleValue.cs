@@ -8,7 +8,7 @@ using System.Text;
 
 namespace iExpr.Exprs.Program
 {
-    public class TupleValue : iExpr.Values.TupleValue,IAccessibleValue, IAdditive, ISubtractive, IMultiplicable
+    public class TupleValue : iExpr.Values.TupleValue, IAdditive, ISubtractive, IMultiplicable
     {
         protected iExpr.Helpers.ExtendAccessibleValueHelper access = null;
 
@@ -32,6 +32,7 @@ namespace iExpr.Exprs.Program
 
         public TupleValue(IEnumerable<IValue> exprs) : base(exprs)
         {
+            init();
         }
 
         List<IValue> slice(int l, int r)

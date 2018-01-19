@@ -13,6 +13,8 @@ namespace iExpr.Exprs.Program
     {
         protected iExpr.Helpers.ExtendAccessibleValueHelper access = null;
 
+        public virtual EvalContextStartupInfo ContextInfo { get; protected set; }
+
         void init()
         {
             access = new iExpr.Helpers.ExtendAccessibleValueHelper(false, this);

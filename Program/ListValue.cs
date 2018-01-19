@@ -22,6 +22,7 @@ namespace iExpr.Exprs.Program
             access.Add(ClassValueBuilder.BuildFunction(Clear, "clear", 0));
             access.Add(ClassValueBuilder.BuildFunction(Insert, "insert", 2));
             access.Add(ClassValueBuilder.BuildFunction(RemoveAt, "removeAt", 1));
+            access.Add(ClassValueBuilder.BuildFunction(Reverse, "reverse", 0));
         }
 
         public ListValue()
@@ -101,6 +102,12 @@ namespace iExpr.Exprs.Program
         public object Clear(FunctionArgument _args, EvalContext cal)
         {
             this.Clear();
+            return null;
+        }
+
+        public object Reverse(FunctionArgument _args, EvalContext cal)
+        {
+            base.Contents.Reverse();
             return null;
         }
 

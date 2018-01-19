@@ -217,7 +217,7 @@ namespace iExpr.Exprs.Program
                     IExpr begin = args[0], cond = args[1], step = args[2];
                     return new ForFunctionValue(begin, cond, step);
                 },
-                3,true
+                3,true, new EvalContextStartupInfo(true, false)
                 );
 
         public static PreFunctionValue ForEach { get; } = new PreFunctionValue(
@@ -230,7 +230,7 @@ namespace iExpr.Exprs.Program
                     ExceptionHelper.RaiseInvalidExpressionFailed(ForEach, args[1], "not a variable token.");
                 
                 return new ForeachFunctionValue(args[0],(args[1] as VariableToken).ID);
-            },2, true
+            },2, true,new EvalContextStartupInfo(true,false)
             );
 
 
@@ -241,7 +241,7 @@ namespace iExpr.Exprs.Program
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(While,1, args);
                 return new WhileFunctionValue(args[0]);
-            },1, true
+            },1, true, new EvalContextStartupInfo(true, false)
             );
 
         public static PreFunctionValue DoWhile { get; } = new PreFunctionValue(
@@ -251,7 +251,7 @@ namespace iExpr.Exprs.Program
                 var args = _args.Arguments;
                 OperationHelper.AssertArgsNumberThrowIf(DoWhile,1, args);
                 return new DoWhileFunctionValue(args[0]);
-            }, 1, true
+            }, 1, true, new EvalContextStartupInfo(true, false)
             );
 
         public static PreFunctionValue If { get; } = new PreFunctionValue(
